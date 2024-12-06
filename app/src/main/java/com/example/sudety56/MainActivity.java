@@ -20,6 +20,7 @@ private EditText haslo2;
 private TextView komunikat;
 private int polubienia = 0;
 private TextView likes;
+private String emailFinal = "";
 
 
     @Override
@@ -55,6 +56,8 @@ private TextView likes;
                 likes.setText(polubienia + "polubień");
             }
         });
+
+
         zapisz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +72,7 @@ private TextView likes;
                     komunikat.setText("Hasła sie nie zgadzaja!!!");
                 } else {
                 komunikat.setText("Zarejestrowano "+ email1);
+                emailFinal = email1;
             }
 
         }});
