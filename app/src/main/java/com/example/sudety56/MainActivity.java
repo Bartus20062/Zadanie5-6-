@@ -1,4 +1,5 @@
 package com.example.sudety56;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -49,10 +50,11 @@ private String emailFinal = "";
             }
         });
         usun.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SuspiciousIndentation")
             @Override
             public void onClick(View view) {
-                if(polubienia>0)
-                polubienia--;
+                if (polubienia > 0)
+                    polubienia--;
                 likes.setText(polubienia + "polubień");
             }
         });
@@ -65,17 +67,27 @@ private String emailFinal = "";
                 String haslo1 = haslo.getText().toString().trim();
                 String haslo3 = haslo2.getText().toString().trim();
 
-                if(!email1.contains("@")){
+                if (!email1.contains("@")) {
                     komunikat.setText("Nieprawidłowy adres email!!");
-                }
-                else if(!haslo1.equals(haslo3)){
+                } else if (!haslo1.equals(haslo3)) {
                     komunikat.setText("Hasła sie nie zgadzaja!!!");
                 } else {
-                komunikat.setText("Zarejestrowano "+ email1);
-                emailFinal = email1;
-            }
+                    komunikat.setText("Zarejestrowano " + email1);
+                    emailFinal = email1;
+                }
 
-        }});
+            }
+        });
+        pokaz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!emailFinal.isEmpty()) {
+                    komunikat.setText("Uczestnik: " + emailFinal);
+                } else{
+                    komunikat.setText("Nie ma uczestnika!!");
+                }
+            }
+        });
 
     }
 }
